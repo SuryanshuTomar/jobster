@@ -4,6 +4,7 @@ import Wrapper from "../assets/wrappers/SmallSidebar";
 import { useDashboardContext } from "../context/DashboardContext";
 
 import { Logo } from ".";
+import NavLinks from "./NavLinks";
 const SmallSidebar = () => {
 	const { showSidebar, toggleSidebar } = useDashboardContext();
 
@@ -24,6 +25,8 @@ const SmallSidebar = () => {
 					<header>
 						<Logo />
 					</header>
+
+					<NavLinks />
 				</div>
 			</div>
 		</Wrapper>
