@@ -1,0 +1,30 @@
+import { NavLink } from "react-router-dom";
+
+import { useDashboardContext } from "../context/DashboardContext";
+import { Links } from "../utils/Links";
+
+const NavLinks = () => {
+	const { toggleSidebar } = useDashboardContext();
+
+	return (
+		<div className="nav-links">
+			{Links.map((link) => {
+				const { text, path, icon } = link;
+
+				return (
+					<NavLink
+						to={path}
+						key={text}
+						onClick={toggleSidebar}
+						className={"nav-link"}
+						end
+					>
+						<span className="icon">{icon}</span>
+						{text}
+					</NavLink>
+				);
+			})}
+		</div>
+	);
+};
+export default NavLinks;
