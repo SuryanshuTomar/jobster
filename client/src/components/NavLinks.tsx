@@ -1,9 +1,14 @@
+import type { FC } from "react";
 import { NavLink } from "react-router-dom";
 
 import { useDashboardContext } from "../context/DashboardContext";
 import { Links } from "../utils/Links";
 
-const NavLinks = () => {
+interface NavLinksProps {
+	isBigSidebar: boolean;
+}
+
+const NavLinks: FC<NavLinksProps> = ({ isBigSidebar }) => {
 	const { toggleSidebar } = useDashboardContext();
 
 	return (
@@ -15,7 +20,7 @@ const NavLinks = () => {
 					<NavLink
 						to={path}
 						key={text}
-						onClick={toggleSidebar}
+						onClick={isBigSidebar ? undefined : toggleSidebar}
 						className={"nav-link"}
 						end
 					>

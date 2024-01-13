@@ -13,7 +13,7 @@ interface DashboardContextProps {
 const initialDashboardValue: DashboardContextProps = {
 	user: { name: "John" },
 	isDarkMode: false,
-	showSidebar: false,
+	showSidebar: true,
 	toggleDarkMode: () => {},
 	toggleSidebar: () => {},
 	logoutUser: () => {},
@@ -26,16 +26,20 @@ const DashboardContext = createContext<DashboardContextProps>(
 export const DashboardContextProvider: FC<{ children: ReactNode }> = ({
 	children,
 }) => {
-	const [isDarkMode, setIsDarkMode] = useState(false);
-	const [showSidebar, setShowSidebar] = useState(false);
+	const [isDarkMode, setIsDarkMode] = useState(
+		initialDashboardValue.isDarkMode
+	);
+	const [showSidebar, setShowSidebar] = useState(
+		initialDashboardValue.showSidebar
+	);
 
 	const toggleDarkMode = () => {
 		setIsDarkMode(!isDarkMode);
 		console.log("Toggle dark Mode : ", isDarkMode);
 	};
-	
+
 	const toggleSidebar = () => {
-		setShowSidebar(!showSidebar);
+		setShowSidebar(!showSidebar);  
 		console.log("Toggle dark Mode : ", showSidebar);
 	};
 
