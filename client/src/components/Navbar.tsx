@@ -27,10 +27,7 @@ const Navbar = () => {
 				</div>
 
 				<div className="btn-container">
-<<<<<<< HEAD
 					<ThemeToggle />
-=======
->>>>>>> 8e871c991c6ae17301aa99ef80684da96a23ec38
 					<LogoutContainer />
 				</div>
 			</div>
