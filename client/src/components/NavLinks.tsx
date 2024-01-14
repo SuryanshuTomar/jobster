@@ -1,11 +1,11 @@
 import type { FC } from "react";
 import { NavLink } from "react-router-dom";
 
-import { useDashboardContext } from "../context/DashboardContext";
+import { useDashboardContext } from "../hooks/useDashboardContext";
 import { Links } from "../utils/Links";
 
 interface NavLinksProps {
-	isBigSidebar: boolean;
+	isBigSidebar?: boolean;
 }
 
 const NavLinks: FC<NavLinksProps> = ({ isBigSidebar }) => {

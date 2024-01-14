@@ -2,7 +2,7 @@ import { useState, type FC } from "react";
 import { FaCaretDown, FaUserCircle } from "react-icons/fa";
 
 import Wrapper from "../assets/wrappers/LogoutContainer";
-import { useDashboardContext } from "../context/DashboardContext";
+import { useDashboardContext } from "../hooks/useDashboardContext";
 
 interface LogoutContainerProps {}
 

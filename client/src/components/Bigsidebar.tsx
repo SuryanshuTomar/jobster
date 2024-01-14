@@ -1,5 +1,5 @@
 import Wrapper from "../assets/wrappers/BigSidebar";
-import { useDashboardContext } from "../context/DashboardContext";
+import { useDashboardContext } from "../hooks/useDashboardContext";
 
 import NavLinks from "./NavLinks";
 

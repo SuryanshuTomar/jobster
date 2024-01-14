@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from "react";
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 
-interface DashboardContextProps {
+export interface DashboardContextProps {
 	user: { name: string };
 	isDarkMode: boolean;
 	showSidebar: boolean;
@@ -19,7 +19,7 @@ const initialDashboardValue: DashboardContextProps = {
 	logoutUser: () => {},
 };
 
-const DashboardContext = createContext<DashboardContextProps>(
+export const DashboardContext = createContext<DashboardContextProps>(
 	initialDashboardValue
 );
 
@@ -39,7 +39,7 @@ export const DashboardContextProvider: FC<{ children: ReactNode }> = ({
 	};
 
 	const toggleSidebar = () => {
-		setShowSidebar(!showSidebar);  
+		setShowSidebar(!showSidebar);
 		console.log("Toggle dark Mode : ", showSidebar);
 	};
 
@@ -62,6 +62,3 @@ export const DashboardContextProvider: FC<{ children: ReactNode }> = ({
 		</DashboardContext.Provider>
 	);
 };
-
-export const useDashboardContext = () =>
-	useContext<DashboardContextProps>(DashboardContext);
