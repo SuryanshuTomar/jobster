@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from "react";
 import { createContext, useState } from "react";
 
-import { getCurrentThemeMode } from "../utils/helpers";
+import { getCurrentThemeMode, getSidebarState } from "../utils/helpers";
 
 export interface DashboardContextProps {
 	user: { name: string };
@@ -29,9 +29,7 @@ export const DashboardContextProvider: FC<{
 	children: ReactNode;
 }> = ({ children }) => {
 	const [isDarkMode, setIsDarkMode] = useState(getCurrentThemeMode());
-	const [showSidebar, setShowSidebar] = useState(
-		initialDashboardValue.showSidebar
-	);
+	const [showSidebar, setShowSidebar] = useState(getSidebarState());
 
 	const toggleDarkMode = () => {
 		const updatedDarkMode = !isDarkMode;
@@ -41,7 +39,9 @@ export const DashboardContextProvider: FC<{
 	};
 
 	const toggleSidebar = () => {
-		setShowSidebar(!showSidebar);
+		const isSidebarOpen = !showSidebar;
+		setShowSidebar(isSidebarOpen);
+		localStorage.setItem("isSidebarOpen", isSidebarOpen + "");
 	};
 
 	const logoutUser = async () => {
