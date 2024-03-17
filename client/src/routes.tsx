@@ -13,6 +13,9 @@ import {
 	AllJobs,
 	Profile,
 } from "./pages";
+import { getCurrentThemeMode } from "./utils/helpers";
+
+getCurrentThemeMode(); // Set the theme for the app.
 
 export const router = createBrowserRouter([
 	{
@@ -47,7 +50,7 @@ export const router = createBrowserRouter([
 							{
 								path: "stats",
 								element: <Stats />,
-							}, 
+							},
 							{
 								path: "all-jobs",
 								element: <AllJobs />,
